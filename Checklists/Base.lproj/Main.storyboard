@@ -55,7 +55,7 @@
         <!--Add Item-->
         <scene sceneID="1f1-BW-9NR">
             <objects>
-                <tableViewController id="d5c-0Q-PFX" sceneMemberID="viewController">
+                <tableViewController id="d5c-0Q-PFX" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="I6b-Hs-wsM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,8 +79,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Item" id="rFq-MK-VMe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="W3k-Yl-pGo"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="gWA-XU-hj3"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="W3k-Yl-pGo">
+                            <connections>
+                                <action selector="cancel" destination="d5c-0Q-PFX" id="JBY-wB-Nfd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="gWA-XU-hj3">
+                            <connections>
+                                <action selector="done" destination="d5c-0Q-PFX" id="dCS-DZ-4Gc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7k-7V-FrF" userLabel="First Responder" sceneMemberID="firstResponder"/>

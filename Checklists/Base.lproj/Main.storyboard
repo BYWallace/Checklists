@@ -78,6 +78,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="d5c-0Q-PFX" eventType="editingDidEndOnExit" id="joc-w8-Ch2"/>
+                                                        <outlet property="delegate" destination="d5c-0Q-PFX" id="2Bl-rh-r28"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -99,13 +100,14 @@
                                 <action selector="cancel" destination="d5c-0Q-PFX" id="JBY-wB-Nfd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="gWA-XU-hj3">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="gWA-XU-hj3">
                             <connections>
                                 <action selector="done" destination="d5c-0Q-PFX" id="dCS-DZ-4Gc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="gWA-XU-hj3" id="PP8-Zg-OvB"/>
                         <outlet property="textField" destination="gu8-Nt-YkZ" id="K5o-dW-zui"/>
                     </connections>
                 </tableViewController>

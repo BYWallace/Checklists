@@ -21,6 +21,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -65,6 +70,15 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         cell.textLabel!.text = checklist.name
         cell.accessoryType = .DetailDisclosureButton
         
+        let count = checklist.countUncheckedItems()
+        if checklist.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
+        } else if count == 0 {
+            cell.detailTextLabel!.text = "All Done!"
+        } else {
+            cell.detailTextLabel!.text = "\(checklist.countUncheckedItems()) Remaining"
+        }
+        
         return cell
     }
     
@@ -73,7 +87,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) {
             return cell
         } else {
-            return UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+            return UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
     }
     

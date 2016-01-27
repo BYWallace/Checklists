@@ -59,6 +59,10 @@ class DataModel {
                 lists = unarchiver.decodeObjectForKey("Checklists") as! [Checklist]
                 unarchiver.finishDecoding()
                 sortChecklists()
+                
+                for list in lists {
+                    list.sortTodos()
+                }
             }
         }
     }

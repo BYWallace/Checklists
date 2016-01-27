@@ -96,13 +96,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
-        let newRowIndex = checklist.items.count
         
         checklist.items.append(item)
-        
-        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        checklist.sortTodos()
+        tableView.reloadData()
         
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -115,8 +112,11 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 configureTextForCell(cell, withChecklistItem: item)
             }
         }
-        dismissViewControllerAnimated(true, completion: nil)
         
+        checklist.sortTodos()
+        tableView.reloadData()
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
